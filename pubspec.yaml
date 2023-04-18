@@ -5,7 +5,6 @@ homepage: https://github.com/Yukams/background_locator_fixed
 issue_tracker: https://github.com/Yukams/background_locator_fixed/issues
 platforms:
   android:
-  ios:
 
 
 environment:
@@ -24,6 +23,4 @@ flutter:
     platforms:
       android:
         package: yukams.app.background_locator_2
-        pluginClass: BackgroundLocatorPlugin
-      ios:
         pluginClass: BackgroundLocatorPlugin

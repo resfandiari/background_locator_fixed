@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:background_locator_2/keys.dart';
 import 'package:background_locator_2/location_dto.dart';
 import 'package:background_locator_2/settings/android_settings.dart';
-import 'package:background_locator_2/settings/ios_settings.dart';
 
 class SettingsUtil {
   static Map<String, dynamic> getArgumentsMap(
@@ -12,8 +11,8 @@ class SettingsUtil {
       void Function(Map<String, dynamic>)? initCallback,
       Map<String, dynamic>? initDataCallback,
       void Function()? disposeCallback,
-      AndroidSettings androidSettings = const AndroidSettings(),
-      IOSSettings iosSettings = const IOSSettings()}) {
+      AndroidSettings androidSettings = const AndroidSettings()
+   }) {
     final args = _getCommonArgumentsMap(callback: callback,
         initCallback: initCallback,
         initDataCallback: initDataCallback,
@@ -21,8 +20,6 @@ class SettingsUtil {
 
     if (Platform.isAndroid) {
       args.addAll(_getAndroidArgumentsMap(androidSettings));
-    } else if (Platform.isIOS) {
-      args.addAll(_getIOSArgumentsMap(iosSettings));
     }
 
     return args;
@@ -70,9 +67,5 @@ class SettingsUtil {
     }
 
     return args;
-  }
-
-  static Map<String, dynamic> _getIOSArgumentsMap(IOSSettings iosSettings) {
-    return iosSettings.toMap();
   }
 }

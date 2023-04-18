@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:background_locator_2/settings/android_settings.dart';
-import 'package:background_locator_2/settings/ios_settings.dart';
 import 'package:background_locator_2/utils/settings_util.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -30,8 +29,7 @@ class BackgroundLocator {
       Map<String, dynamic> initDataCallback = const {},
       void Function()? disposeCallback,
       bool autoStop = false,
-      AndroidSettings androidSettings = const AndroidSettings(),
-      IOSSettings iosSettings = const IOSSettings()}) async {
+      AndroidSettings androidSettings = const AndroidSettings()}) async {
     if (autoStop) {
       _widgetsBinding!.addObserver(AutoStopHandler());
     }
@@ -41,8 +39,7 @@ class BackgroundLocator {
         initCallback: initCallback,
         initDataCallback: initDataCallback,
         disposeCallback: disposeCallback,
-        androidSettings: androidSettings,
-        iosSettings: iosSettings);
+        androidSettings: androidSettings);
 
     await _channel.invokeMethod(
         Keys.METHOD_PLUGIN_REGISTER_LOCATION_UPDATE, args);

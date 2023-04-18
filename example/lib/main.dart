@@ -5,7 +5,6 @@ import 'dart:ui';
 import 'package:background_locator_2/background_locator.dart';
 import 'package:background_locator_2/location_dto.dart';
 import 'package:background_locator_2/settings/android_settings.dart';
-import 'package:background_locator_2/settings/ios_settings.dart';
 import 'package:background_locator_2/settings/locator_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:location_permissions/location_permissions.dart';
@@ -209,11 +208,6 @@ class _MyAppState extends State<MyApp> {
         initCallback: LocationCallbackHandler.initCallback,
         initDataCallback: data,
         disposeCallback: LocationCallbackHandler.disposeCallback,
-        iosSettings: IOSSettings(
-            accuracy: LocationAccuracy.NAVIGATION,
-            distanceFilter: 0,
-            stopWithTerminate: true
-        ),
         autoStop: false,
         androidSettings: AndroidSettings(
             accuracy: LocationAccuracy.NAVIGATION,
